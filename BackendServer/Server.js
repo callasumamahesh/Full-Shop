@@ -95,9 +95,6 @@ app.delete('/deletefromcart/:id',async(req,res) => {
         const id = req.params.id;
         console.log(id);
         const data = await AddToCart.findByIdAndDelete(id);
-        // if (!mongoose.Types.ObjectId.isValid(id)) {
-        //     return res.status(400).json({ message: 'Invalid ID format' });
-        // }
         if(!data){
             return res.status(404).json({message : "Item not Found"})
         }
